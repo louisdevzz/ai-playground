@@ -156,7 +156,7 @@ export default function Home() {
                 isInput?(
                   <textarea className="p-2 w-full outline-none resize-none h-32 border-b border-gray-200" placeholder="Input your evaluation criterria"/>
                 ):(
-                  <p className="w-full text-gray-400">Input your evaluation criterria</p>
+                  <p className="w-full text-gray-400">Type the command <span className="font-bold">/deploy</span> to initiate the deployment process.</p>
                 )
               }
               <div className={`flex flex-row gap-2 ${isInput&&"w-full float-start mt-2 justify-between"}`}>
