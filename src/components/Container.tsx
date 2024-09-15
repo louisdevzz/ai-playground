@@ -1,5 +1,13 @@
+import { useEffect, useState } from "react";
+
 const Container = () =>{
-    const valueInput = localStorage.getItem("inputText")??null;
+    const [valueInput,setValueInput] = useState<string|null>(null);
+
+    useEffect(()=>{
+        if(localStorage.getItem("inputText")){
+            setValueInput(localStorage.getItem("inputText"))
+        }
+    },[])
 
     return(
         <div className="flex flex-row justify-start w-full px-5 md:px-36 py-0 md:py-10 md:max-h-[52rem] md:pb-0 pb-20  overflow-y-auto">

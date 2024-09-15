@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react";
 
 const ContainerRubric = () =>{
-    const valueInput = localStorage.getItem("inputText")??null;
-   
+    const [valueInput,setValueInput] = useState<string|null>(null);
+
+    useEffect(()=>{
+        if(localStorage.getItem("inputText")){
+            setValueInput(localStorage.getItem("inputText"))
+        }
+    },[])
+
     return(
         <div className="flex flex-row justify-start w-full px-5 md:px-36 py-0 md:max-h-[45rem] md:pb-0 pb-20 overflow-y-auto">
             <div className="flex flex-row gap-2 w-full">
