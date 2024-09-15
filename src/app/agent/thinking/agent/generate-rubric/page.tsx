@@ -1,32 +1,48 @@
 "use client"
 import Siderbar from "@/components/Siderbar"
 import { useState } from "react";
+import { sliceString } from "@/utils/utils";
+
 
 export default function Home() {
   const [isInput, setIsInput] = useState<boolean>(false)
   return (
     <div className="flex flex-row  w-full">
-      <Siderbar/>
+      <div className="hidden md:block">
+        <Siderbar/>
+      </div>
       <div className="flex flex-col w-full gap-10 ">
         <div className="flex flex-row w-full items-center justify-between p-5 border-b border-solid ">
-          <span>Rubric Application Screening/ ViaPrize Campaign</span>
-          <div className="flex gap-1">
-            <img width={18} src="/assets/settings.svg" alt="setting" />
-            <img width={18} src="/assets/trash.svg" alt="trash" />
-            <img width={18} src="/assets/archive.svg" alt="archive" />
+          <img width={20} src="/assets/arrow-left.svg" alt="icon" />
+          <span className="md:hidden">{sliceString("Rubric Application Screening/ ViaPrize Campaign",30)}</span>
+          <span className="hidden md:block">Rubric Application Screening/ ViaPrize Campaign</span>
+          <div className="hidden md:block">
+            <div className="flex gap-1">
+              <img width={18} src="/assets/settings.svg" alt="setting" />
+              <img width={18} src="/assets/trash.svg" alt="trash" />
+              <img width={18} src="/assets/archive.svg" alt="archive" />
+            </div>
+          </div>
+          <div className="md:hidden">       
+            <img width={18} src="/assets/option.svg" alt="option" />
           </div>
         </div>
-        <div className="flex flex-col gap-10 p-10 justify-start items-start">
+        <div className="flex flex-col gap-5 md:gap-10 p-5 md:p-10 justify-start items-start">
           <div className="flex flex-row gap-2">
             <img width={20} src="/assets/logo.png" className="w-[20px] h-[20px] rounded-full " alt="logo" />
             <div className="flex flex-col gap-3">
               <div className="flex flex-row gap-2">
                 <span className="text-sm pr-2 border-r">amichael.near</span>
-                <div className="flex flex-row gap-4">
-                  <span className="text-sm text-gray-500">2:45 PM</span>
-                  <img width={15} src="/assets/pen.svg" alt="pen" />
-                  <img width={15} src="/assets/book.svg" alt="book" />
-                  <img width={15} src="/assets/dots.svg" alt="dots" />
+                <div>
+                  <div className="flex flex-row gap-4">
+                    <span className="text-sm text-gray-500">2:45 PM</span>
+                    <img width={15} src="/assets/pen.svg" alt="pen" />
+                    <img width={15} src="/assets/book.svg" alt="book" />
+                    <img width={15} src="/assets/dots.svg" alt="dots" />
+                  </div>
+                </div>
+                <div>
+
                 </div>
               </div>
               <div className="flex flex-col justify-start gap-4"> 
@@ -69,15 +85,15 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row w-full p-5 gap-5 border border-solid shadow-sm rounded-lg">
+          <div className="flex flex-row w-full p-3 md:p-5 gap-3 md:gap-5 border border-solid shadow-sm rounded-lg">
             <img width={20} src="/assets/logo.png" className="w-[20px] h-[20px] rounded-full " alt="logo" />
-            <div className="flex flex-col gap-2 ">
-              <div className="flex flex-row gap-2">
+            <div className="flex flex-col gap-2 pr-5 w-full ">
+              <div className="flex flex-row">
                 <span className="pr-2 border-r">Proposal Evaluation Agent</span>
                 <span className="text-sm text-gray-500">2:46 PM</span>
               </div>
-              <span className="text-gray-500">Below is your dynamically generated rubric. You can edit the descriptions for each score to clarify what each level represents.</span>
-              <div className="overflow-x-auto">
+              <span className="text-gray-500 inline-block">Below is your dynamically generated rubric. You can edit the descriptions for each score to clarify what each level represents.</span>
+              <div className="overflow-x-auto w-full ">
                 <table className="min-w-full border-collapse border border-gray-300">
                   <thead className="bg-gray-100">
                     <tr>
@@ -132,7 +148,8 @@ export default function Home() {
                     </tr>
                   </tbody>
                 </table>
-                <p className="mt-4 text-gray-600">
+              </div>
+              <p className="mt-4 text-gray-600">
                   Click on the <span className="text-violet-500">“coLumns”</span> or <span className="text-red-500">“rows” </span> to review and edit the rubric. Once you're satisfied, type the command <code className="text-blue-600">/deploy</code> to initiate the deployment process.
                 </p>
                 <div className="flex flex-row justify-between">
@@ -147,7 +164,6 @@ export default function Home() {
                     <span>Edit Rubric</span>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
           <div className="flex bottom-10 w-full">
@@ -156,31 +172,33 @@ export default function Home() {
                 isInput?(
                   <textarea className="p-2 w-full outline-none resize-none h-32 border-b border-gray-200" placeholder="Input your evaluation criterria"/>
                 ):(
-                  <p className="w-full text-gray-400">Type the command <span className="font-bold">/deploy</span> to initiate the deployment process.</p>
+                  <p className="w-full text-sm  text-gray-400">Type the command <span className="font-bold">/deploy</span> to initiate the deployment process.</p>
                 )
               }
               <div className={`flex flex-row gap-2 ${isInput&&"w-full float-start mt-2 justify-between"}`}>
-                <div className={`flex flex-row gap-5 px-2 ${!isInput&&"border-r border-gray-200"}`}>
-                  {
-                    isInput&&(
-                      <div className="flex flex-row gap-2 bg-gray-100 p-2 rounded-lg items-center shadow-sm">
-                        <img width={15} src="/assets/library.svg" alt="icon" />
-                        <span>Library</span>
-                      </div>
-                    )
-                  }
-                  <button>
-                    <img width={isInput?20:25} src="/assets/paperclip.svg" alt="icon" />
-                  </button>
-                  <button>
-                    <img width={isInput?20:25} src="/assets/microphone.svg" alt="icon" />
-                  </button>
-                  <button>
-                    <img width={isInput?20:25} src="/assets/photo.svg" alt="icon" />
-                  </button>
-                  <button>
-                    <img width={isInput?20:25} src="/assets/grid.svg" alt="icon" />
-                  </button>
+                <div className="hidden md:bolck">
+                  <div className={`flex flex-row gap-2 md:gap-5 px-2 ${!isInput&&"border-r border-gray-200"}`}>
+                    {
+                      isInput&&(
+                        <div className="flex flex-row gap-2 bg-gray-100 p-2 rounded-lg items-center shadow-sm">
+                          <img width={15} src="/assets/library.svg" alt="icon" />
+                          <span>Library</span>
+                        </div>
+                      )
+                    }
+                    <button>
+                      <img width={isInput?20:25} src="/assets/paperclip.svg" alt="icon" />
+                    </button>
+                    <button>
+                      <img width={isInput?20:25} src="/assets/microphone.svg" alt="icon" />
+                    </button>
+                    <button>
+                      <img width={isInput?20:25} src="/assets/photo.svg" alt="icon" />
+                    </button>
+                    <button>
+                      <img width={isInput?20:25} src="/assets/grid.svg" alt="icon" />
+                    </button>
+                  </div>
                 </div>
                 <button className="p-3 rounded-xl bg-[#0969DA]">
                   <img width={isInput?15:25} src="/assets/telegram.svg" alt="icon" />
