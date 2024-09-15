@@ -10,9 +10,9 @@ const ContainerRubric = () =>{
     },[])
 
     return(
-        <div className="flex flex-row justify-start w-full px-5 md:px-36 py-0 md:max-h-[45rem] md:pb-0 pb-20 overflow-y-auto">
+        <div className="flex flex-row justify-start w-full px-3 md:px-36 py-0 md:max-h-[45rem] md:pb-0 pb-20 overflow-y-auto">
             <div className="flex flex-row gap-2 w-full">
-                <img width={20} className="w-8 h-8 rounded-full" src="/assets/avatar.png" alt="avatar" />
+                <img width={20} className="md:w-8 w-5 h-5 md:h-8 rounded-full" src="/assets/avatar.png" alt="avatar" />
                 <div className="flex flex-col w-full relative">
                     <div className="flex flex-row gap-4 items-center">
                         <span>louisdevzz.near</span>
@@ -41,7 +41,7 @@ const ContainerRubric = () =>{
                             <img width={20} src="/assets/arrow-down-gray.svg" alt="icon" />
                         </button>
                     </div>
-                    <div className="md:mt-10 mt-10 border border-gray-200 rounded-lg shadow-sm flex flex-col gap-2 p-4 md:p-10 md:w-[100%] items-start">
+                    <div className="md:mt-10 mt-10 border border-gray-200 rounded-lg shadow-sm flex flex-col gap-2 p-3 md:p-10 md:w-[100%] w-[93%] items-start">
                         <div className="flex flex-row items-center gap-3">
                             <img width={40} className="p-2 rounded-full border border-gray-100 shadow-sm" src="/assets/logo.png" alt="logo" />
                             <span className="font-semibold">Comprehensive Rubric Matrix</span>
@@ -94,34 +94,34 @@ const ContainerRubric = () =>{
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-row w-full p-3 md:p-5 gap-3 md:gap-5 border border-solid shadow-sm rounded-lg mt-10">
+                    <div className="flex flex-row md:w-full p-3 md:p-5 gap-3 md:gap-5 border border-solid shadow-sm rounded-lg mt-10 w-[93%]">
                         <img width={20} src="/assets/logo.png" className="w-[20px] h-[20px] rounded-full" alt="logo" />
                         <div className="flex flex-col gap-2 pr-5 w-full ">
                         <div className="flex flex-row gap-2 items-center">
                             <span>Proposal Evaluation Agent</span>
                             <span className="text-sm text-gray-500">2:46 PM</span>
                         </div>
-                        <span className="text-gray-500 inline-block">Below is your dynamically generated rubric. You can edit the descriptions for each score to clarify what each level represents.</span>
-                        <div className="w-full">
+                        <span className="text-gray-500 inline-block md:text-base text-xs">Below is your dynamically generated rubric. You can edit the descriptions for each score to clarify what each level represents.</span>
+                        <div className="w-full overflow-x-auto text-xs md:text-base">
                             <table className="min-w-full border-collapse border border-gray-300">
                             <thead className="bg-gray-100">
                                 <tr>
-                                <th className="border border-gray-300 px-4 py-2">Criteria</th>
-                                <th className="border border-gray-300 px-4 py-2">Description</th>
-                                <th className="border border-gray-300 px-4 py-2">Weighting (%)</th>
-                                <th className="border border-gray-300 px-4 py-2">1 - Poor</th>
-                                <th className="border border-gray-300 px-4 py-2">2 - Below Average</th>
-                                <th className="border border-gray-300 px-4 py-2">3 - Average</th>
+                                    <th className="border border-gray-300 px-4 py-2">Criteria</th>
+                                    <th className="border border-gray-300 px-4 py-2">Description</th>
+                                    <th className="border border-gray-300 px-4 py-2">Weighting (%)</th>
+                                    <th className="border border-gray-300 px-4 py-2">1 - Poor</th>
+                                    <th className="border border-gray-300 px-4 py-2">2 - Below Average</th>
+                                    <th className="border border-gray-300 px-4 py-2">3 - Average</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                <td className="border border-gray-300 px-4 py-2">Adherence to Open Source Requirements</td>
-                                <td className="border border-gray-300 px-4 py-2">Code is available under the GNU Affero GPL v3.0 and includes clear documentation.</td>
-                                <td className="border border-gray-300 px-4 py-2">15</td>
-                                <td className="border border-gray-300 px-4 py-2">Not open source</td>
-                                <td className="border border-gray-300 px-4 py-2">Some open source files, but no documentation</td>
-                                <td className="border border-gray-300 px-4 py-2">Open source with minimal documentation</td>
+                                    <td className="border border-gray-300 px-4 py-2">Adherence to Open Source Requirements</td>
+                                    <td className="border border-gray-300 px-4 py-2">Code is available under the GNU Affero GPL v3.0 and includes clear documentation.</td>
+                                    <td className="border border-gray-300 px-4 py-2">15</td>
+                                    <td className="border border-gray-300 px-4 py-2">Not open source</td>
+                                    <td className="border border-gray-300 px-4 py-2">Some open source files, but no documentation</td>
+                                    <td className="border border-gray-300 px-4 py-2">Open source with minimal documentation</td>
                                 </tr>
                                 <tr>
                                 <td className="border border-gray-300 px-4 py-2">Functionality of Writing Assistant</td>
@@ -161,17 +161,17 @@ const ContainerRubric = () =>{
                         <p className="mt-4 text-gray-600 text-sm">
                             Click on the <span className="text-violet-500">“coLumns”</span> or <span className="text-red-500">“rows” </span> to review and edit the rubric. Once you're satisfied, type the command <code className="text-blue-600">/deploy</code> to initiate the deployment process.
                             </p>
-                            <div className="flex flex-row justify-between">
-                            <div className="flex flex-row gap-2">
-                                <img width={16} src="/assets/relay.svg" alt="relay" />
-                                <img width={16} src="/assets/copy.svg" alt="copy" />
-                                <img width={25} src="/assets/share.svg" alt="share" />
-                                <img width={14} src="/assets/save.svg" alt="save" />
-                            </div>
-                            <div className="flex flex-row gap-2 p-2 bg-gray-100 rounded-lg">
-                                <img width={16} src="/assets/pen.svg" alt="pen" />
-                                <span className="text-sm">Edit Rubric</span>
-                            </div>
+                            <div className="flex flex-row gap-20 md:gap-0 md:justify-between">
+                                <div className="flex flex-row gap-2">
+                                    <img width={16} src="/assets/relay.svg" alt="relay" />
+                                    <img width={16} src="/assets/copy.svg" alt="copy" />
+                                    <img width={25} src="/assets/share.svg" alt="share" />
+                                    <img width={14} src="/assets/save.svg" alt="save" />
+                                </div>
+                                <div className="flex flex-row gap-2 p-2 bg-gray-100 rounded-lg">
+                                    <img width={16} src="/assets/pen.svg" alt="pen" />
+                                    <span className="text-sm">Edit Rubric</span>
+                                </div>
                             </div>
                         </div>
                     </div>

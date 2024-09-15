@@ -3,6 +3,7 @@ import Siderbar from "@/components/Siderbar"
 import { useEffect, useState } from "react";
 import { sliceString } from "@/utils/utils";
 import ContainerRubric from "@/components/ContainerRubric";
+import Navbar from "@/components/Navbar";
 
 
 export default function Home() {
@@ -35,26 +36,40 @@ export default function Home() {
 
       return () => window.removeEventListener("resize", handleResize);
   }, []); 
+
   return (
-    <div className="flex flex-row w-full overflow-hidden">
-      <Siderbar/>
-      <div className="flex flex-col w-full gap-10">
-        <div className="flex flex-row w-full items-center justify-between p-5 border-b border-solid">
-          <span>Rubric Application Screening/ ViaPrize Campaign</span>
-          <div>
-            <div className="flex flex-row gap-5">
-              <button>
-                <img width={18} src="/assets/settings.svg" alt="setting" />
-              </button>
-              <button>
-                <img width={18} src="/assets/trash.svg" alt="trash" />
-              </button>
-              <button>
-                <img width={18} src="/assets/archive.svg" alt="archive" />
-              </button>
+    <div className="flex flex-col md:flex-row w-full overflow-hidden">
+      {
+        windowSize?.width > 768 &&(
+          <Siderbar/>
+        )
+      }
+      {
+        windowSize?.width <= 768 &&(
+          <Navbar/>
+        )
+      }
+      <div className="flex flex-col w-full gap-10 md:mt-0 mt-5">
+        {
+          windowSize?.width > 768 &&(
+            <div className="flex flex-row w-full items-center justify-between p-5 border-b border-solid">
+              <span>Rubric Application Screening/ ViaPrize Campaign</span>
+              <div>
+                <div className="flex flex-row gap-5">
+                  <button>
+                    <img width={18} src="/assets/settings.svg" alt="setting" />
+                  </button>
+                  <button>
+                    <img width={18} src="/assets/trash.svg" alt="trash" />
+                  </button>
+                  <button>
+                    <img width={18} src="/assets/archive.svg" alt="archive" />
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )
+        }
         <div className="flex w-full relative justify-center">
             <ContainerRubric/>
             <div className="fixed bottom-5 px-5 md:px-0 md:max-w-7xl w-full z-20">

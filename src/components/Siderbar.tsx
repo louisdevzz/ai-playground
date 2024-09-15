@@ -5,9 +5,9 @@ const Siderbar = () => {
     return(
         <div className="flex flex-col gap-10 p-10 w-[26rem] border-r border-gray-100 h-screen relative shadow-sm">
             <div className="flex flex-row justify-between w-full items-center">
-                <button>
+                <Link href={"/"}>
                     <img width={20} src="/assets/arrow-left.svg" alt="icon" />
-                </button>
+                </Link>
                 <div className="flex flex-row gap-1">
                     <img width={20} src="/assets/logo.png" alt="logo" />
                     <span>{sliceString("Rubric Application Screening",20)}</span>
@@ -24,10 +24,10 @@ const Siderbar = () => {
             <div className="flex flex-col gap-3">
                 <span className="text-gray-300">HISTORY</span>
                 <div className="flex flex-col gap-2">
-                    <div className="flex flex-row gap-2 items-center">
+                    <Link href={"/agent"} className="flex cursor-pointer flex-row gap-2 items-center">
                         <img width={16} src="/assets/message.svg" alt="icon" />
-                        <span className="text-gray-700">Link item</span>
-                    </div>
+                        <span className="text-gray-700">{sliceString("Rubric Application Screening/ ViaPrize Campaign",30)}</span>
+                    </Link>
                 </div>
             </div>
             <div className="fixed bottom-16 flex flex-col gap-2">
