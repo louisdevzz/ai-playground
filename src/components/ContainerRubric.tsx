@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Table from "./Table";
 
 const ContainerRubric = () =>{
     const [valueInput,setValueInput] = useState<string|null>(null);
@@ -8,6 +9,28 @@ const ContainerRubric = () =>{
             setValueInput(localStorage.getItem("inputText"))
         }
     },[])
+
+    const Data: Data = {
+        labels: ["Criteria","Description","Weighting","1 - Poor","2 - Below Average","3 - Average"],
+        data:[
+            {
+                criteria: 'Adherence to Open Source Requirements',
+                description: 'Code is available under the GNU Affero GPL v3.0 and includes clear documentation.',
+                weighting: 15,
+                poor: 'Not open source',
+                below_average: 'Some open source files, but no documentation',
+                average: 'Open source with minimal documentation'
+            },
+            {
+                criteria: 'Adherence to Open Source Requirements',
+                description: 'Code is available under the GNU Affero GPL v3.0 and includes clear documentation.',
+                weighting: 15,
+                poor: 'Not open source',
+                below_average: 'Some open source files, but no documentation',
+                average: 'Open source with minimal documentation'
+            }
+        ]
+    }
 
     return(
         <div className="flex flex-row justify-start w-full px-3 md:px-36 py-0 md:max-h-[45rem] md:pb-0 pb-20 overflow-y-auto">
@@ -103,7 +126,7 @@ const ContainerRubric = () =>{
                         </div>
                         <span className="text-gray-500 inline-block md:text-base text-xs">Below is your dynamically generated rubric. You can edit the descriptions for each score to clarify what each level represents.</span>
                         <div className="w-full overflow-x-auto text-xs md:text-base">
-                            <table className="min-w-full border-collapse border border-gray-300">
+                            {/* <table className="min-w-full border-collapse border border-gray-300">
                             <thead className="bg-gray-100">
                                 <tr>
                                     <th className="border border-gray-300 px-4 py-2">Criteria</th>
@@ -156,7 +179,8 @@ const ContainerRubric = () =>{
                                 <td className="border border-gray-300 px-4 py-2">Can interact with contracts and API but with issues</td>
                                 </tr>
                             </tbody>
-                            </table>
+                            </table> */}
+                            <Table data={Data}/>
                         </div>
                         <p className="mt-4 text-gray-600 text-sm">
                             Click on the <span className="text-violet-500">“coLumns”</span> or <span className="text-red-500">“rows” </span> to review and edit the rubric. Once you're satisfied, type the command <code className="text-blue-600">/deploy</code> to initiate the deployment process.
